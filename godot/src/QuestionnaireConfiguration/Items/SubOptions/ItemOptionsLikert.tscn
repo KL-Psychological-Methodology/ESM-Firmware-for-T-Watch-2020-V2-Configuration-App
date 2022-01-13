@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/QuestionnaireConfiguration/Items/SubOptions/ItemOptionsLikert.gd" type="Script" id=1]
+
+[node name="ItemOptionsLikert" type="GridContainer"]
+margin_right = 1024.0
+margin_bottom = 80.0
+columns = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 112.0
+margin_bottom = 19.0
+text = "Number of Points"
+
+[node name="ResolutionSpinBox" type="SpinBox" parent="."]
+margin_left = 116.0
+margin_right = 1024.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 33.0
+margin_right = 112.0
+margin_bottom = 47.0
+text = "Left Label"
+
+[node name="LeftLabelEdit" type="LineEdit" parent="."]
+margin_left = 116.0
+margin_top = 28.0
+margin_right = 1024.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 61.0
+margin_right = 112.0
+margin_bottom = 75.0
+text = "Right Label"
+
+[node name="RightLabelEdit" type="LineEdit" parent="."]
+margin_left = 116.0
+margin_top = 56.0
+margin_right = 1024.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[connection signal="value_changed" from="ResolutionSpinBox" to="." method="_on_ResolutionSpinBox_value_changed"]
+[connection signal="text_changed" from="LeftLabelEdit" to="." method="_on_LeftLabelEdit_text_changed"]
+[connection signal="text_changed" from="RightLabelEdit" to="." method="_on_RightLabelEdit_text_changed"]

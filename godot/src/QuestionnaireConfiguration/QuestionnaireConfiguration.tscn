@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Main/EditLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/fontawesome-free-5.15.4-desktop/otfs/Font Awesome 5 Free-Solid-900.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/QuestionnaireConfiguration/QuestionnaireConfiguration.gd" type="Script" id=3]
+[ext_resource path="res://src/QuestionnaireConfiguration/Alarms/AlarmsContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/QuestionnaireConfiguration/RandomizationGroups/RandomizationGroupsContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/QuestionnaireConfiguration/Items/ItemsContainer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="QuestionnaireConfiguration" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/separation = 0
+
+[node name="TopPanel" type="PanelContainer" parent="VBox"]
+margin_right = 1024.0
+margin_bottom = 64.0
+
+[node name="VBox" type="VBoxContainer" parent="VBox/TopPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 57.0
+
+[node name="Hbox" type="HBoxContainer" parent="VBox/TopPanel/VBox"]
+margin_right = 1010.0
+margin_bottom = 22.0
+
+[node name="QLabel" parent="VBox/TopPanel/VBox/Hbox" instance=ExtResource( 1 )]
+margin_right = 34.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+
+[node name="SettingsButton" type="Button" parent="VBox/TopPanel/VBox/Hbox"]
+margin_left = 982.0
+margin_right = 1010.0
+margin_bottom = 22.0
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_disabled = Color( 0.262745, 0.262745, 0.262745, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.4, 0.65098, 1, 1 )
+toggle_mode = true
+pressed = true
+text = ""
+flat = true
+
+[node name="QSettings" type="HBoxContainer" parent="VBox/TopPanel/VBox"]
+margin_top = 26.0
+margin_right = 1010.0
+margin_bottom = 50.0
+
+[node name="ActiveCheckbox" type="CheckBox" parent="VBox/TopPanel/VBox/QSettings"]
+margin_right = 66.0
+margin_bottom = 24.0
+pressed = true
+text = "active"
+
+[node name="EventCheckbox" type="CheckBox" parent="VBox/TopPanel/VBox/QSettings"]
+margin_left = 70.0
+margin_right = 134.0
+margin_bottom = 24.0
+text = "event"
+
+[node name="DeleteButton" type="Button" parent="VBox/TopPanel/VBox/QSettings"]
+margin_left = 860.0
+margin_right = 1010.0
+margin_bottom = 24.0
+size_flags_horizontal = 10
+text = "Delete Questionnaire"
+
+[node name="Tabs" type="Tabs" parent="VBox"]
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 88.0
+tab_align = 0
+
+[node name="AlarmsContainer" parent="VBox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 88.0
+margin_right = 1024.0
+margin_bottom = 258.0
+
+[node name="RandomizationGroupsContainer" parent="VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 258.0
+margin_right = 1024.0
+margin_bottom = 429.0
+
+[node name="ItemsContainer" parent="VBox" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 429.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[connection signal="text_changed" from="VBox/TopPanel/VBox/Hbox/QLabel" to="." method="_on_QLabel_text_changed"]
+[connection signal="toggled" from="VBox/TopPanel/VBox/Hbox/SettingsButton" to="." method="_on_SettingsButton_toggled"]
+[connection signal="toggled" from="VBox/TopPanel/VBox/QSettings/ActiveCheckbox" to="." method="_on_ActiveCheckbox_toggled"]
+[connection signal="toggled" from="VBox/TopPanel/VBox/QSettings/EventCheckbox" to="." method="_on_EventCheckbox_toggled"]
+[connection signal="pressed" from="VBox/TopPanel/VBox/QSettings/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="tab_changed" from="VBox/Tabs" to="." method="_on_Tabs_tab_changed"]

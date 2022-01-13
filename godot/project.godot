@@ -1,0 +1,171 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Alarm",
+"language": "GDScript",
+"path": "res://src/Resources/Alarm.gd"
+}, {
+"base": "PanelContainer",
+"class": "AlarmBox",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Alarms/AlarmBox.gd"
+}, {
+"base": "PanelContainer",
+"class": "AlarmsContainer",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Alarms/AlarmsContainer.gd"
+}, {
+"base": "MarginContainer",
+"class": "EditLabel",
+"language": "GDScript",
+"path": "res://src/Main/EditLabel.gd"
+}, {
+"base": "Resource",
+"class": "ItemDefinition",
+"language": "GDScript",
+"path": "res://src/Resources/Items/BaseItem.gd"
+}, {
+"base": "ItemDefinition",
+"class": "ItemDefinitionLikert",
+"language": "GDScript",
+"path": "res://src/Resources/Items/ItemLikert.gd"
+}, {
+"base": "ItemDefinition",
+"class": "ItemDefinitionNumeric",
+"language": "GDScript",
+"path": "res://src/Resources/Items/ItemNumeric.gd"
+}, {
+"base": "ItemDefinition",
+"class": "ItemDefinitionOptions",
+"language": "GDScript",
+"path": "res://src/Resources/Items/ItemOptions.gd"
+}, {
+"base": "ItemDefinition",
+"class": "ItemDefinitionText",
+"language": "GDScript",
+"path": "res://src/Resources/Items/ItemText.gd"
+}, {
+"base": "ItemDefinition",
+"class": "ItemDefinitionVAS",
+"language": "GDScript",
+"path": "res://src/Resources/Items/ItemVAS.gd"
+}, {
+"base": "PanelContainer",
+"class": "ItemDisplay",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/ItemDisplay.gd"
+}, {
+"base": "ItemSuboptionsBase",
+"class": "ItemOptionsLikert",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/SubOptions/ItemOptionsLikert.gd"
+}, {
+"base": "ItemSuboptionsBase",
+"class": "ItemOptionsNumeric",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/SubOptions/ItemOptionsNumeric.gd"
+}, {
+"base": "ItemSuboptionsBase",
+"class": "ItemOptionsOptions",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/SubOptions/ItemOptionsOptions.gd"
+}, {
+"base": "ItemSuboptionsBase",
+"class": "ItemOptionsVAS",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/SubOptions/ItemOptionsVAS.gd"
+}, {
+"base": "GridContainer",
+"class": "ItemSuboptionsBase",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/ItemSuboptionsBase.gd"
+}, {
+"base": "PanelContainer",
+"class": "ItemsContainer",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/Items/ItemsContainer.gd"
+}, {
+"base": "Resource",
+"class": "Questionnaire",
+"language": "GDScript",
+"path": "res://src/Resources/Questionnaire.gd"
+}, {
+"base": "MarginContainer",
+"class": "QuestionnaireConfiguration",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/QuestionnaireConfiguration.gd"
+}, {
+"base": "PanelContainer",
+"class": "QuestionnaireList",
+"language": "GDScript",
+"path": "res://src/QuestionnaireList/QuestionnaireList.gd"
+}, {
+"base": "Button",
+"class": "QuestionnaireListButton",
+"language": "GDScript",
+"path": "res://src/QuestionnaireList/QuestionnaireListButton.gd"
+}, {
+"base": "HBoxContainer",
+"class": "RandomizationGroupDisplay",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/RandomizationGroups/RandomizationGroupDisplay.gd"
+}, {
+"base": "PanelContainer",
+"class": "RandomizationGroupsContainer",
+"language": "GDScript",
+"path": "res://src/QuestionnaireConfiguration/RandomizationGroups/RandomizationGroupsContainer.gd"
+}, {
+"base": "Resource",
+"class": "Study",
+"language": "GDScript",
+"path": "res://src/Resources/Study.gd"
+} ]
+_global_script_class_icons={
+"Alarm": "",
+"AlarmBox": "",
+"AlarmsContainer": "",
+"EditLabel": "",
+"ItemDefinition": "",
+"ItemDefinitionLikert": "",
+"ItemDefinitionNumeric": "",
+"ItemDefinitionOptions": "",
+"ItemDefinitionText": "",
+"ItemDefinitionVAS": "",
+"ItemDisplay": "",
+"ItemOptionsLikert": "",
+"ItemOptionsNumeric": "",
+"ItemOptionsOptions": "",
+"ItemOptionsVAS": "",
+"ItemSuboptionsBase": "",
+"ItemsContainer": "",
+"Questionnaire": "",
+"QuestionnaireConfiguration": "",
+"QuestionnaireList": "",
+"QuestionnaireListButton": "",
+"RandomizationGroupDisplay": "",
+"RandomizationGroupsContainer": "",
+"Study": ""
+}
+
+[application]
+
+config/name="TWatch-ESM Config Tool"
+run/main_scene="res://src/Main/Main.tscn"
+config/icon="res://icon.png"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

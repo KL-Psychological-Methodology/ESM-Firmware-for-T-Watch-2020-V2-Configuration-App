@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/fontawesome-free-5.15.4-desktop/otfs/Font Awesome 5 Free-Solid-900.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/fontawesome-free-5.15.4-desktop/otfs/Font Awesome 5 Free-Regular-400.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/QuestionnaireConfiguration/Items/ItemDisplay.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="ItemDisplay" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="OrderControl" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 26.0
+margin_bottom = 586.0
+
+[node name="UpButton" type="Button" parent="HBoxContainer/OrderControl"]
+margin_right = 26.0
+margin_bottom = 265.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = ""
+
+[node name="IndexLabel" type="Label" parent="HBoxContainer/OrderControl"]
+margin_top = 269.0
+margin_right = 26.0
+margin_bottom = 317.0
+text = "
+1
+"
+align = 1
+valign = 1
+
+[node name="DownButton" type="Button" parent="HBoxContainer/OrderControl"]
+margin_top = 321.0
+margin_right = 26.0
+margin_bottom = 586.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = ""
+
+[node name="ItemProperties" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 30.0
+margin_right = 978.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+
+[node name="NameEdit" type="LineEdit" parent="HBoxContainer/ItemProperties"]
+margin_right = 948.0
+margin_bottom = 24.0
+placeholder_text = "Item Name"
+
+[node name="Label" type="Label" parent="HBoxContainer/ItemProperties"]
+margin_top = 28.0
+margin_right = 948.0
+margin_bottom = 42.0
+text = "Prompt:"
+
+[node name="PromptEdit" type="TextEdit" parent="HBoxContainer/ItemProperties"]
+margin_top = 46.0
+margin_right = 948.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 50 )
+wrap_enabled = true
+
+[node name="MandatoryCheckbox" type="CheckBox" parent="HBoxContainer/ItemProperties"]
+margin_top = 100.0
+margin_right = 948.0
+margin_bottom = 124.0
+text = "Mandatory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ItemProperties"]
+margin_top = 128.0
+margin_right = 948.0
+margin_bottom = 148.0
+
+[node name="Label" type="Label" parent="HBoxContainer/ItemProperties/HBoxContainer"]
+margin_top = 3.0
+margin_right = 69.0
+margin_bottom = 17.0
+text = "Item Type:"
+
+[node name="TypeOptionButton" type="OptionButton" parent="HBoxContainer/ItemProperties/HBoxContainer"]
+margin_left = 73.0
+margin_right = 948.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer"]
+margin_left = 982.0
+margin_right = 1010.0
+margin_bottom = 22.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = ""
+
+[connection signal="pressed" from="HBoxContainer/OrderControl/UpButton" to="." method="_on_OrderButton_pressed" binds= [ "up" ]]
+[connection signal="pressed" from="HBoxContainer/OrderControl/DownButton" to="." method="_on_OrderButton_pressed" binds= [ "down" ]]
+[connection signal="text_changed" from="HBoxContainer/ItemProperties/NameEdit" to="." method="_on_NameEdit_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/ItemProperties/PromptEdit" to="." method="_on_PromptEdit_text_changed"]
+[connection signal="toggled" from="HBoxContainer/ItemProperties/MandatoryCheckbox" to="." method="_on_MandatoryCheckbox_toggled"]
+[connection signal="item_selected" from="HBoxContainer/ItemProperties/HBoxContainer/TypeOptionButton" to="." method="_on_TypeOptionButton_item_selected"]
+[connection signal="pressed" from="HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
