@@ -82,8 +82,8 @@ margin_bottom = 170.0
 window_title = "Save Study"
 resizable = true
 access = 2
-current_dir = "/Users/clemens.volsa/Documents/GitHub/TWatch-ESM_ConfigTool/godot"
-current_path = "/Users/clemens.volsa/Documents/GitHub/TWatch-ESM_ConfigTool/godot/"
+current_dir = "/Users/selina.volsa/Documents/GitHub/TWatch-2020-ESM-Configuration-App/godot"
+current_path = "/Users/selina.volsa/Documents/GitHub/TWatch-2020-ESM-Configuration-App/godot/"
 
 [connection signal="text_changed" from="Hbox/TopBar/HBoxContainer/EditLabel" to="." method="_on_EditLabel_text_changed"]
 [connection signal="pressed" from="Hbox/TopBar/HBoxContainer/LoadButton" to="." method="_on_LoadButton_pressed"]
