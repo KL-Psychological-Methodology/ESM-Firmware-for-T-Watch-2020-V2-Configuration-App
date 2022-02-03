@@ -6,6 +6,8 @@ signal order_up_requested
 # warning-ignore:unused_signal
 signal order_down_requested
 signal delete_requested
+signal type_changed
+
 
 const type_options := ["Text", "Likert", "VAS", "Numeric", "Options"]
 const suboptions_scenes := {
@@ -39,6 +41,10 @@ func setup(item: ItemDefinition) -> void:
 	prompt_edit.text = item.prompt
 	mandatory_checkbox.pressed = item.mandatory
 	_setup_subtype()
+
+
+func get_definition() -> ItemDefinition:
+	return _item
 
 
 func _setup_subtype() -> void:
@@ -110,6 +116,7 @@ func _on_TypeOptionButton_item_selected(index: int) -> void:
 		_sub_options = suboptions_scenes[type].instance()
 		item_properties.add_child(_sub_options)
 		_sub_options.setup(_item)
+	emit_signal("type_changed")
 
 
 func _on_DeleteButton_pressed() -> void:

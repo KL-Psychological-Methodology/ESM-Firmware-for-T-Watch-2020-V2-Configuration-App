@@ -14,6 +14,7 @@ func setup(questionnaire: Questionnaire) -> void:
 		item.queue_free()
 	for item in questionnaire.items:
 		_add_item_display(item)
+	call_deferred("_update_indexing")
 
 
 func _add_item_display(item: ItemDefinition) -> void:
@@ -23,6 +24,7 @@ func _add_item_display(item: ItemDefinition) -> void:
 	item_display.connect("delete_requested", self, "_on_ItemDisplay_delete_requested", [item_display])
 	item_display.connect("order_up_requested", self, "_on_ItemDisplay_order_up_requested", [item_display])
 	item_display.connect("order_down_requested", self, "_on_ItemDisplay_order_down_requested", [item_display])
+	item_display.connect("type_changed", self, "_on_ItemDisplay_type_changed", [item_display])
 
 
 func _on_ItemDisplay_delete_requested(item_display: ItemDisplay) -> void:
@@ -51,6 +53,11 @@ func _on_ItemDisplay_order_down_requested(item_display: ItemDisplay) -> void:
 	_questionnaire.items[index] = _questionnaire.items[index + 1]
 	_questionnaire.items[index + 1] = temp
 	_update_indexing()
+
+
+func _on_ItemDisplay_type_changed(item_display: ItemDisplay) -> void:
+	var index := item_display.get_index()
+	_questionnaire.items[index] = item_display.get_definition()
 
 
 func _update_indexing() -> void:

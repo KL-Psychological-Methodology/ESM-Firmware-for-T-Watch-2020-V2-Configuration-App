@@ -3,5 +3,5 @@ extends GridContainer
 
 var _item: ItemDefinition
 
-func setup(_item: ItemDefinition) -> void:
+func setup(item: ItemDefinition) -> void:
 	pass
