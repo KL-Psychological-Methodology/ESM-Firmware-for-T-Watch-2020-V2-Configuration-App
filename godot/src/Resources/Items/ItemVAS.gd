@@ -8,8 +8,8 @@ export (String) var right_label: String = ""
 func get_save_dict() -> Dictionary:
 	var save_dict := .get_save_dict()
 	save_dict["type"] = get_item_type()
-	save_dict["l_lab"] = "left_label"
-	save_dict["r_lab"] = "right_label"
+	save_dict["l_lab"] = left_label
+	save_dict["r_lab"] = right_label
 	return save_dict
 
 

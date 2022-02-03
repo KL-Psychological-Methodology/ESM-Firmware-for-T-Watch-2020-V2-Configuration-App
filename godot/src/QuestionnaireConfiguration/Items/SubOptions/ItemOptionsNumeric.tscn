@@ -35,6 +35,8 @@ margin_top = 28.0
 margin_right = 1024.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
+allow_greater = true
+allow_lesser = true
 
 [node name="Label4" type="Label" parent="."]
 margin_top = 61.0
@@ -48,6 +50,8 @@ margin_top = 56.0
 margin_right = 1024.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
+allow_greater = true
+allow_lesser = true
 
 [connection signal="value_changed" from="DigitsSpinBox" to="." method="_on_DigitsSpinBox_value_changed"]
 [connection signal="value_changed" from="MinValueSpinBox" to="." method="_on_MinValueSpinBox_value_changed"]
