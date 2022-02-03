@@ -41,6 +41,7 @@ func _update_info_label() -> void:
 	var label_text := ""
 	if _alarm.duration > 0:
 		var duration_end := start_time + _alarm.duration
+# warning-ignore:integer_division
 		var duration_end_string = "%d:%d" % [int(duration_end / 60), duration_end % 60]
 		label_text = "Alarm will trigger between %s and %s" % [start_time_string, duration_end_string]
 	else:

@@ -162,6 +162,10 @@ config/name="TWatch-ESM Config Tool"
 run/main_scene="res://src/Main/Main.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [physics]
 
 common/enable_pause_aware_picking=true

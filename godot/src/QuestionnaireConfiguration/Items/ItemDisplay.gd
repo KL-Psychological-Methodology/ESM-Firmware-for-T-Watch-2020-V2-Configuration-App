@@ -1,7 +1,9 @@
 class_name ItemDisplay
 extends PanelContainer
 
+# warning-ignore:unused_signal
 signal order_up_requested
+# warning-ignore:unused_signal
 signal order_down_requested
 signal delete_requested
 

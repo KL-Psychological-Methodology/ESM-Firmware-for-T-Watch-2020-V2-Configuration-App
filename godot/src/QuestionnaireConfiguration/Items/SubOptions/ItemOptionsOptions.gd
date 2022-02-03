@@ -25,7 +25,7 @@ func _create_row(row_num: int, option_string: String = "") -> void:
 	_options.append({"label": label, "edit": line_edit})
 
 
-func _assemble_options() -> void:
+func _assemble_options(_text: String) -> void:
 	var options_array := []
 	for option in _options:
 		options_array.append(option.edit.text)

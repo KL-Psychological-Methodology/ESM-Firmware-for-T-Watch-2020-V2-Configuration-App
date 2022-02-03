@@ -2,6 +2,7 @@ class_name Questionnaire
 extends Resource
 
 signal name_changed(new_name)
+# warning-ignore:unused_signal
 signal questionnaire_deleted
 
 export (String) var questionnaire_name: String = "" setget set_questionnaire_name
